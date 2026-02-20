@@ -5,33 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluxo Roleplay Connect</title>
     <link rel="icon" href="assets/icon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="bubblesContainer" class="bubbles-container"></div>
 
-    <div class="container">
+    <main class="container">
         <div class="logo-container">
             <img src="assets/logo.gif" alt="Fluxo Roleplay">
         </div>
 
-        <h1>Conectando ao servidor<span class="dots"></span></h1>
-        <div class="server-info">Fluxo Roleplay</div>
+        <h1>Entrando no servidor<span class="dots"></span></h1>
+        <p class="server-info" id="serverName">Fluxo Roleplay</p>
 
-        <div class="spinner"></div>
+         <div class="progress-wrapper" aria-label="Progresso de conexão">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <p class="progress-label" id="progressLabel">Preparando ambiente... 0%</p>
 
-        <div class="server-info small">
-            Aguarde, você será conectado automaticamente
+        <div class="actions">
+            <button id="connectNowBtn" class="btn primary">Conectar agora</button>
+            <button id="copyAddressBtn" class="btn ghost">Copiar endereço</button>
+            <button id="toggleMusicBtn" class="btn ghost">🔊 Música: ligada</button>
         </div>
 
-        <div id="mtaWarning" class="mta-warning">
-            <p>MTA não detectado no seu computador.</p>
-            <a href="https://multitheftauto.com/" target="_blank">
-                Baixar MTA
-            </a>
+        <div class="server-info small" id="countdownLabel">
+            Conexão automática em 8s
         </div>
-    </div>
+
+    <section id="mtaWarning" class="mta-warning" aria-live="polite">
+            <p><strong>MTA não abriu automaticamente.</strong></p>
+            <p>Verifique se o MTA está instalado e tente novamente:</p>
+            <ol>
+                <li>Abra o Multi Theft Auto uma vez como administrador.</li>
+                <li>Volte para esta tela e clique em <em>Conectar agora</em>.</li>
+                <li>Se precisar, instale/atualize o MTA pelo site oficial.</li>
+            </ol>
+            <a href="https://multitheftauto.com/" target="_blank" rel="noopener noreferrer">Baixar MTA</a>
+        </section>
+    </main>
+
+    <audio id="bgMusic" src="assets/fundoa.mp3" loop preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
